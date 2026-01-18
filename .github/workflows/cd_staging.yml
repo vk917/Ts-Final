@@ -11,11 +11,12 @@ jobs:
         steps:
             - run: |
                 echo "${{ secrets.VKI_2}}" &> ~/ssh_key
-                chmod 600 ~/ssh_key
-                ssh -i ~/ssh_key ubuntu@13.203.215.19
-                cd Ts-Final/ && git pull
-                pnpm install
-                pnpm run build
-                pm2 restart fe-server
-                pm2 restart http-server
-                pm2 restart ws-server
+                chmod 700 ~/ssh_key
+                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.203.215.19 -t "cd Ts-Final/ && git pull origin main &&
+                export $PATH=/home/ubuntu/.nvm/versions/node/v24.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin/home/ubuntu/.nvm/versions/node/v24.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && 
+                npm install -g pnpm &&
+                pnpm install &&
+                pnpm run build &&
+                pm2 restart fe-server &&
+                pm2 restart http-server &&
+                pm2 restart ws-server "
