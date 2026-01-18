@@ -13,7 +13,7 @@ jobs:
               run: |
                 echo ${{ secrets.VKI_2}} &> ~/ssh_key
                 ssh -i ~/ssh_key ubuntu@13.203.215.19
-                cd Ts-1/ && git pull
+                cd Ts-final/ && git pull
                 pnpm install
                 pnpm run build
                 pm2 restart fe-server
