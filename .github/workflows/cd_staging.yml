@@ -11,7 +11,7 @@ jobs:
         steps:
             - run: |
                 
-                ssh -i ~/ssh_key ubuntu@13.203.215.19
+                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.203.215.19
                 cd Ts-Final/ && git pull
                 pnpm install
                 pnpm run build
