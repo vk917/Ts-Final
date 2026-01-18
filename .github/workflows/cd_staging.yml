@@ -12,6 +12,7 @@ jobs:
             - name: SSH Into server
               run: |
                 echo ${{ secrets.VKI_2}} &> ~/ssh_key
+                chmod 600 ~/ssh_key
                 ssh -i ~/ssh_key ubuntu@13.203.215.19
                 cd Ts-Final/ && git pull
                 pnpm install
