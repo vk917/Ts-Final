@@ -1,0 +1,15 @@
+name: deploying on staging
+on: 
+    push:
+        branches:
+            - "main"
+
+jobs:
+    redeploying_everything:
+        name: deploying everything in the staging cluster
+        runs-on: ubuntu-latest
+        steps:
+            - name: SSH Into server
+              run: |
+                echo ${{ secrets.VKI_2}} &> ~/ssh_key
+                ssh -i ~/ssh/
