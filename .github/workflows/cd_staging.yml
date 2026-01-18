@@ -10,8 +10,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: |
-                
+                echo "${{ secrets.VKI_2 }}" &> ~/ssh_key
+                mkdir -p /home/runner/.ssh
+        
                 ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.203.215.19
+                
                 cd Ts-Final/ && git pull
                 pnpm install
                 pnpm run build
