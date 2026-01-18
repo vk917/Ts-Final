@@ -13,7 +13,7 @@ jobs:
                 echo "${{ secrets.VKI_2 }}" &> ~/ssh_key
                 mkdir -p /home/runner/.ssh
                 chmod 700 /home/runner/ssh_key
-                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.203.215.19 -t "cd week-25-ci-next-app/ && git pull origin main && 
+                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.203.215.19 -t "cd Ts-Final/ && git pull origin main && 
                 export PATH="/home/ubuntu/.nvm/versions/node/v24.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" &&
                 cd Ts-Final/ && git pull origin main && npm install -g pnpm && 
                 pnpm install && 
